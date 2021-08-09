@@ -12,6 +12,10 @@ Time Complexity: O(length(pattern) + length(string))
 Space Complexity: O(length(pattern) + length(string))
 
 Command Line Input: python3 z_algo.py text pattern
+
+Note: 
+Array output will return the length of the matched pattern. 
+Full Match: If the length of the pattern is equal to the number in the array
 """
 def main():
     # Get input from command Line:
@@ -32,7 +36,7 @@ def main():
             print("No Matches Found")
             sys.exit()
         elif input("Do You want an array? (y/n)\n") == 'y':
-            print(ZArrayPrefix)
+            print(ZArrayPrefix[len(pattern)+1:])
             sys.exit()
         else:
             for i in range(len(positionsList)):
