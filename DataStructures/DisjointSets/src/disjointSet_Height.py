@@ -17,19 +17,26 @@ Eg: Parent Array:
 - @position 4: -3 indicates that we have three elements under the parent element 4
 - @position 5: 4 indicates that the parent of element 5 is at position 4
 
-Command Line Input: python3 z_algo.py text pattern
+Command Line Input: python3 disjointSet_Height.py
 
 """
 
 def main():
     size = int(input("Enter Size of Array\n"))
-    
-    while True:
-        first = int(input("Enter First Element:\n"))
-        second = int(input("Enter Second Element:\n"))
-        parent = InitializeSet(int(size))
-        Union(first, second, parent)
-    print(parent)
+    parent = InitializeSet(int(size))
+    endFLag = True
+    while endFLag:
+        try:
+            first = int(input("Enter First Element:\n"))
+            second = int(input("Enter Second Element:\n"))
+            Union(first, second, parent)
+        except:
+            print("Element value is greater than list size!")
+
+        end = input("Do you want to add more?(y/n)")
+        if end == 'n':
+            print(parent)
+            endFLag = False
 
 
 def InitializeSet(N):
@@ -91,11 +98,6 @@ def Union(nodeA, nodeB, parent):
 
 if __name__ == "__main__":
     main()
-    # parent = InitializeSet(8)
-    # print(Union(4, 5, parent))
-    # print(Union(6, 7, parent))
-    # print(Union(5, 7, parent))
-
 
 
 
